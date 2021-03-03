@@ -1,0 +1,22 @@
+.publish {
+    display: flex;
+    justify-content: flex-end;
+    margin: 1rem 1rem;
+}
+
+.posts {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 1rem 10rem;
+
+    .post {
+        width: 100%;
+        margin: 0.5rem 0rem;
+
+        .info {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}

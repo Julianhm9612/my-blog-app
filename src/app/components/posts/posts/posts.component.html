@@ -1,0 +1,28 @@
+<div class="publish">
+    <button mat-raised-button color="primary" routerLink="/posts/add">
+        Nuevo
+    </button>
+</div>
+
+<div class="posts">
+    <h2>Posts</h2>
+    <mat-card class="post" *ngFor="let post of posts" >
+        <div class="info">
+            <span class="date">
+                {{ currentDate | date: 'yyyy-MM-dd' }}
+            </span>
+            <a class="user">
+                <span>
+                    {{ post.userId }}
+                </span>
+            </a>
+        </div>
+        <div class="title">
+            <a [routerLink]="['post', post.id]">
+                <span>
+                    {{ post.title }}
+                </span>
+            </a>
+        </div>
+    </mat-card>
+</div>
