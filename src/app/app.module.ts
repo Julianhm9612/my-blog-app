@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
+export function jwtTokenGetter(): any {
+  return sessionStorage.getItem('access_token');
+}
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +16,11 @@ import { BlogMaterialModule } from './modules/blog-material/blog-material/blog-m
 import { NavBarComponent } from './components/layout/nav-bar/nav-bar.component';
 import { HomeComponent } from './components/home/home.component';
 import { AddPostComponent } from './components/posts/add-post/add-post.component';
+import { LoginComponent } from './components/login/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { JwtModule } from '@auth0/angular-jwt';
+import { JwtInterceptor } from './interceptors/jwt/jwt.interceptor';
+import { LogoutComponent } from './components/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -21,16 +30,27 @@ import { AddPostComponent } from './components/posts/add-post/add-post.component
     Page403Component,
     NavBarComponent,
     HomeComponent,
-    AddPostComponent
+    AddPostComponent,
+    LoginComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: jwtTokenGetter
+      }
+    }),
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    BlogMaterialModule
+    BlogMaterialModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

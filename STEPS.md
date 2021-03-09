@@ -56,6 +56,38 @@
 
     > ng generate component components/home
 
-2. Crear un componente para crear nuevos POSTS
+17. Crear un componente para el inicio de sesión
 
-    > ng generate component components/posts/addPost
+    > ng generate component components/login
+
+18. Importar en el modulo principal
+
+    ***FormsModule***
+    ***ReactiveFormsModule***
+
+19. Crear un guard de tipo CanActivate para validar la autenticación
+
+    > ng generate guard guards/auth/auth
+
+20. Crear un servicio para el manejo de la seguridad y autenticación
+
+    > ng generate service services/security/security
+
+21. Instalar la dependencia para validar los tokens
+    > npm i @auth0/angular-jwt
+
+22. Configurar la dependecia JwtModule en el modulo principal
+
+23. Crear un guard de tipo CanActivate para validar direcciones que no tiene acceso por estar autenticado
+
+    > ng generate guard guards/noAuth/noAuth
+
+24. Crear un interceptor para agregar la cabecera del token para el servicio de añadir post
+
+    > ng generate interceptor interceptors/jwt/jwt
+
+25. Configurar el JwtInterceptor en el modulo principal
+
+26. Crear un componente para el cierre de sesión
+
+    > ng generate component components/logout

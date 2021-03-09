@@ -1,0 +1,24 @@
+<div class="login">
+    <mat-card class="form">
+        <form [formGroup]="loginForm">
+            <h2>Iniciar sesión</h2>
+            <mat-form-field appearance="outline">
+                <mat-label>Usuario</mat-label>
+                <input matInput placeholder="ej. shawn" formControlName="user">
+                <mat-icon matSuffix>person_outline</mat-icon>
+                <mat-error>El usuario es obligatorio</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Contraseña</mat-label>
+                <input matInput type="password" formControlName="password">
+                <mat-icon matSuffix>visibility</mat-icon>
+                <mat-error>La contraseña es obligatoria</mat-error>
+            </mat-form-field>
+            <div class="actions">
+                <button type="button" mat-raised-button routerLink="/">cancelar</button>
+                <button type="submit" mat-raised-button color="primary" (click)="login()">Siguiente</button>
+            </div>
+        </form>
+    </mat-card>
+</div>
+

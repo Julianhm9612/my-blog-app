@@ -1,0 +1,23 @@
+.login {
+    width: 100%;
+    height: calc(100vh - 64px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .form form {
+        width: 21rem;
+        height: 20rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        margin: 2rem 1rem;
+
+        .actions {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+        }
+    }
+}

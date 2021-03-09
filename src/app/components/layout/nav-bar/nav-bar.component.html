@@ -1,14 +1,21 @@
-<mat-toolbar color="primary">
-    <span>
-        SongBlog.com
-    </span>
-    <button mat-button routerLink="/">
-        Home
-    </button>
-    <button mat-button routerLink="/posts">
-        Posts
-    </button>
-    <button mat-button routerLink="/albums">
-        Albums
-    </button>
+<mat-toolbar color="primary" class="menu">
+    <div class="app">
+        <span>
+            SongBlog.com
+        </span>
+        <button mat-button routerLink="/">
+            Home
+        </button>
+        <button mat-button routerLink="/posts">
+            Posts
+        </button>
+        <button mat-button routerLink="/albums">
+            Albums
+        </button>
+    </div>
+    <div class="app">
+        <button mat-button routerLink="/login">
+            Login
+        </button>
+    </div>
 </mat-toolbar>
